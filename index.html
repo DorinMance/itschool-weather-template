@@ -62,7 +62,12 @@
       <section class="py-5 bg-secondary">
         <div class="container">
           <h2 class="text-primary text-center mb-5">Vremea curentă</h2>
-          <div class="current-weather"></div>
+          <div class="current-weather
+          d-flex
+          flex-wrap
+          justify-content-evenly
+          align-items-center
+          "></div>
         </div>
       </section>
       <section class="py-5">
@@ -85,5 +90,11 @@
       integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ"
       crossorigin="anonymous"
     ></script>
+
+    <script type="text/javascript" src="/utils/Date.js"></script>
+    <script type="text/javascript" src="/utils/Weather.js"></script>
+    <script type="text/javascript" src="/api/Endpoints.js"></script>
+    <script type="text/javascript" src="/sections/CurrentWeather.js"></script>
+    <script type="text/javascript" src="/index.js"></script>
   </body>
 </html>
