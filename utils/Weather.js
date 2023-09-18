@@ -1,3 +1,3 @@
 function getWeatherIcon(iconCode){
-    return `https://openweathermap.org/img/wn/${iconCode}2x.png`;
+    return `https://openweathermap.org/img/wn/${iconCode}@2x.png`;
 }
