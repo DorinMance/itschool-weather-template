@@ -35,7 +35,7 @@
             apoi scrollează pentru a vedea vremea din orașul tău.
           </p>
           <p class="text-center fs-5">
-            Orașul tău curent este <strong>București.</strong>
+            Orașul tău curent este <strong class="city-name"></strong>
           </p>
           <div class="dropdown d-flex justify-content-center">
             <button
@@ -66,8 +66,21 @@
           d-flex
           flex-wrap
           justify-content-evenly
-          align-items-center
-          "></div>
+          align-items-center " >
+          
+            <div class="temperature-container">
+              <strong class="city fs-2"></strong>
+              <p class="day-time-container fs-4"></p>
+              <strong class="temperature fs-1"></strong>
+              <img class="weather-icon" src="" />
+            </div>
+            <div class="temperature-details-container">
+              <p class="real-feel-label fs-5"> Real Feel: <strong class="real-feel"></strong></p>
+              <p class="description fs-5"></p>
+              <p class="wind-label fs-5">Vant:<strong class="wind"></strong></p>
+            </div>
+
+          </div>
         </div>
       </section>
       <section class="py-5">
@@ -95,6 +108,7 @@
     <script type="text/javascript" src="/utils/Weather.js"></script>
     <script type="text/javascript" src="/api/Endpoints.js"></script>
     <script type="text/javascript" src="/sections/CurrentWeather.js"></script>
+    <script type="text/javascript" src="/sections/ChooseLocation.js"></script>
     <script type="text/javascript" src="/index.js"></script>
   </body>
 </html>

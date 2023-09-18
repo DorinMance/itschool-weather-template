@@ -1,5 +1,5 @@
-function displayCurrentWeather() {
-    const defaultCityWeatherUrl = getCurrentWeatherDataUrl("Bucharest");
+function displayCurrentWeather(city) {
+    const defaultCityWeatherUrl = getCurrentWeatherDataUrl(city);
 
 
     fetch(defaultCityWeatherUrl)
@@ -11,31 +11,49 @@ function displayCurrentWeather() {
        const currentDayOfTheWeek = getDayOfTheWeek(dt);
        const currentTime = getTime(dt);
 
-        const temperature = main.temp;
-        const realFeel = main.feels_like;
+        const temperature = Math.round(main.temp);
+        const realFeel = Math.round(main.feels_like);
         const description = weather[0].description;
-        const windSpeed = wind.speed;
+        const windSpeedInKmPerHour = windToKmPerHour(wind.speed);
+        const windSpeed = Math.round(windSpeedInKmPerHour);
 
 
         const weatherIcon = getWeatherIcon(weather[0].icon);
 
 
-        let weatherContainer = document.querySelector(".current-weather");
-        weatherContainer.innerHTML = `
-        <div class="px-3">
-        <div class="fs-2 mb-2"><strong>${name}</strong></div>
-        <div class="fs-4"><strong>${currentDayOfTheWeek}</strong>, ${currentTime}</div>
-        <div class="d-flex align-items-center justify-content-center">
-          <strong class="fs-1">${temperature}°C</strong>
-          <img src="${weatherIcon}" />
-        </div>
-      </div>
-      <div class="px-3">
-        <p class="fs-5">Real feel: <strong>${realFeel}°C</strong></p>
-        <p class="fs-5 text-capitalize">${description}</p>
-        <p class="fs-5">Vânt: <strong>${windSpeed} km/h</strong></p>
-      </div>
-        `;
+        populateDataInDOM(currentDayOfTheWeek, currentTime, temperature, realFeel,  windSpeed, description, weatherIcon, name);
 
+
+
+
+
+        //weatherContainer.innerHTML = '';
     });
+
+    function populateDataInDOM(currentDayOfTheWeek, currentTime, temperature, realFeel,  windSpeed, description, weatherIcon, name){
+      
+      let weatherContainer = document.querySelector(".current-weather");
+
+      let cityElement = document.querySelector(".city");
+      cityElement.innerText = name;
+
+      let dayTimeContainerElement = document.querySelector(".day-time-container");
+      dayTimeContainerElement.innerHTML = `<strong>${currentDayOfTheWeek}</strong> ,${currentTime}`;
+
+      let temperatureElement = document.querySelector(".temperature");
+      temperatureElement.innerText = `${temperature}°C`;
+
+      let weatherIconElement = document.querySelector(".weather-icon");
+      weatherIconElement.attributes["src"].value = weatherIcon;
+
+      let realFeelElement = document.querySelector(".real-feel");
+      realFeelElement.innerText = `${realFeel}°C`;
+
+      let descriptionElement = document.querySelector(".description");
+      descriptionElement.innerText = description;
+
+      let windElement = document.querySelector(".wind");
+      windElement.innerText = `${windSpeed}km/h`;
+
+    }
 }
