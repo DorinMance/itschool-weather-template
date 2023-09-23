@@ -5,7 +5,7 @@ function displayCurrentWeather(city) {
     fetch(defaultCityWeatherUrl)
     .then((response) => response.json())
     .then((data) => {
-       debugger;
+       
         const { name, main, weather, wind, dt } = data;
 
        const currentDayOfTheWeek = getDayOfTheWeek(dt);

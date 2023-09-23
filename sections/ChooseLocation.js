@@ -3,13 +3,12 @@ const timisoara = document.querySelector(".dropdown-menu .timisoara");
 const oradea = document.querySelector(".dropdown-menu .oradea");
 
 
-let city = "București";
-updateCity(city);
 
 function updateWeather(currentCity){
-    city = currentCity;
-    updateCity(city);
-    displayCurrentWeather(city);
+    localStorage.setItem('city', currentCity);
+    updateCity(currentCity);
+    displayCurrentWeather(currentCity);
+    getForecastFor5Days(currentCity);
 };
 
 function updateCity(city){
