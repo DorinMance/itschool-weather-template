@@ -60,3 +60,18 @@ header {
 
 
 
+footer .container p {
+  padding-right: 3rem;
+  padding-left: 3rem;
+}
+
+
+
+.scroll-to-top {
+width: 50px;
+height: 50px;
+visibility: hidden;
+position: fixed;
+bottom: 15px;
+right: 15px;
+}
